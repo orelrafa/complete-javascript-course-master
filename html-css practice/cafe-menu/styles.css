@@ -31,7 +31,7 @@ p {
   margin-right: auto;
   padding: 20px;
   max-width: 500px;
-  border-radius: 25px;
+  /*border-radius: 25px;*/
 }
 
 img {
@@ -71,7 +71,7 @@ h2 {
 
 .price {
   text-align: right;
-  width: 25%;
+  width: 23%;
 }
 
 /* FOOTER */
