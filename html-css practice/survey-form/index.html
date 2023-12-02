@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Survey Form</title>
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="form">
+    <h1 id="title">Application Form</h1>
+    <p id="description">Application form for a potential dragon slayer</p>
+    <form id="survey-form">
+      <fieldset>
+        <label for="name" id="name-label""
+          >Enter your name: <input id="name" name="name" type="text" placeholder="Sir McNuggets" required
+        /></label>
+        <label for="email" id="email-label">
+          Enter your email:
+          <input id="email" name="email" type="email" placeholder="goblinSlayer@sherwood.com" required />
+        </label>
+      <label for="number" id="number-label">Enter your age: <input id="number" name="number" type="number" min="13" max="120" placeholder="18" required></fieldset>
+        <fieldset>
+            <label for="dropdown-label">Please select the appropriate gender: <select id="dropdown" name="dropdown">
+                <option value="">(select one)</option>
+                <option value="0">Male</option>
+                <option value="1">Female</option>
+                <option value="2">Other</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <legend class="favored">Favored Class: </legend>
+                <label for="warrior-class">
+                    <input id="warrior-class" class="inline" type="radio" name="favored-class" value="0" checeked> Warrior
+                </label>
+                <label for="wizard-class">
+                    <input id="wizard-class" class="inline" type="radio" name="favored-class" value="1"> Wizard
+                </label>                
+                <label for="rogue-class">
+                    <input id="rogue-class" class="inline" type="radio" name="favored-class" value="2"> Rogue
+                </label>
+        </fieldset>
+        <fieldset>
+            <legend class="favored"> Favored stats: </legend>
+            <label for="strength">
+                <input id="strength" name="stats" type="checkbox" class="inline" value="0"> Strength
+            </label> 
+            <label for="dexterity">
+                <input id="dexterity" name="stats" type="checkbox" class="inline" value="1"> Dexterity
+            </label>             
+            <label for="intelligence">
+                <input id="intelligence" name="stats" type="checkbox" class="inline" value="2"> Intelligence
+            </label> 
+            <label for="mind">
+                <input id="mind" name="stats" type="checkbox" class="inline" value="3"> Mind
+            </label> 
+            <label for="endurance">
+                <input id="endurance" name="stats" type="checkbox" class="inline" value="4"> Endurance
+            </label> 
+            <label for="faith">
+                <input id="faith" name="stats" type="checkbox" class="inline" value="5"> Faith
+            </label> 
+            <label for="arcane">
+                <input id="arcane" name="stats" type="checkbox" class="inline" value="6"> Arcane
+            </label> 
+        </fieldset>
+        <label for="bio"
+        >Provide a bio:
+        <textarea
+          id="bio"
+          name="bio"
+          rows="3"
+          cols="30"
+          placeholder="I have slayed many dragons..."
+        ></textarea>
+      </label>
+      <input id="submit" type="submit" value="Submit" />
+    </form>
+    </div>
+  </body>
+</html>
