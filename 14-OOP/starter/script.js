@@ -95,4 +95,56 @@ function generateStudents2(length) {
   return students;
 }
 
-console.log(generateStudents2(100));
+/*
+console.log(generateStudents2(100).sort((a, b) => a.average - b.average));
+*/
+const Car = function (make, speed) {
+  this.make = make;
+  this.speed = speed;
+};
+
+Car.prototype.accelerate = function () {
+  this.speed += 10;
+  console.log(`'${this.make}' going at ${this.speed} km/h`);
+};
+
+Car.prototype.break = function () {
+  this.speed -= 5;
+  console.log(`'${this.make}' going at ${this.speed} km/h`);
+};
+
+/*
+const bmw = new Car('BMW', 120);
+bmw.accelerate();
+bmw.accelerate();
+bmw.accelerate();
+bmw.break();
+
+const mercedes = new Car('Mercedes', 95);
+mercedes.accelerate();
+mercedes.accelerate();
+mercedes.accelerate();
+mercedes.break();
+*/
+
+//class expression
+//const PersonCli= class{}
+
+//class declaration
+class PersonCl {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+
+  //looks can be deceiving, all of the methods we write here will be on the prototype of the object, so no waste of memory.
+  calcAge() {
+    console.log(2037);
+  }
+}
+const jessica = new PersonCl('Jessica', 1996);
+console.log(jessica);
+jessica.calcAge();
+console.log(jessica.__proto__ === PersonCl.prototype);
+
+//classes are not hoisted, we can't use them before they are declared. we can pass classes into functions and return them from functions.
