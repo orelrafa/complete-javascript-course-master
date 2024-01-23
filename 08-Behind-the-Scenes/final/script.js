@@ -127,7 +127,8 @@ f();
 
 ///////////////////////////////////////
 // Regular Functions vs. Arrow Functions
-// var firstName = 'Matilda';
+
+*/ var firstName = 'Matilda';
 
 const jonas = {
   firstName: 'Jonas',
@@ -159,6 +160,7 @@ const jonas = {
 jonas.greet();
 jonas.calcAge();
 
+/*
 // arguments keyword
 const addExpr = function (a, b) {
   console.log(arguments);
@@ -230,4 +232,3 @@ jessicaCopy.family.push('John');
 console.log('Before marriage:', jessica2);
 console.log('After marriage: ', jessicaCopy);
 */
-
