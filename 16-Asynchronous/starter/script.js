@@ -20,14 +20,21 @@ https://countries-api-836d.onrender.com/countries/
 const getCountryData = function (country) {
   const request = new XMLHttpRequest();
   const url = `https://restcountries.com/v3.1/name/${country}`;
-  console.log(url);
+  //console.log(url);
   request.open('GET', url);
   request.send();
 
   request.addEventListener('load', function () {
     const [data] = JSON.parse(this.responseText);
-    console.log(data);
-    console.log(data.languages.por);
+    //console.log(data);
+    //console.log(data.languages.por);
+    //console.log(data.languages[Object.keys(data.languages)[0]]);
+
+    //getting the nested currency name abstractly
+    //console.log(data.currencies.EUR.name);
+    let currencyName = data.currencies[Object.keys(data.currencies)[0]];
+    //console.log(currencyName[Object.keys(currencyName)[0]]);
+    //console.log([data]);
     const html = `
   <article class="country">
     <img class="country__img" src="${data.flags.png}" />
@@ -37,8 +44,12 @@ const getCountryData = function (country) {
       <p class="country__row"><span>👫</span>${(
         +data.population / 1000000
       ).toFixed(1)} people</p>
-      <p class="country__row"><span>🗣️</span>${data.languages.por}</p>
-      <p class="country__row"><span>💰</span>${data.currencies.EUR.name}</p>
+      <p class="country__row"><span>🗣️</span>${
+        data.languages[Object.keys(data.languages)[0]]
+      }</p>
+      <p class="country__row"><span>💰</span>${
+        currencyName[Object.keys(currencyName)[0]]
+      }</p>
     </div>
   </article>
 `;
@@ -48,4 +59,5 @@ const getCountryData = function (country) {
 };
 
 getCountryData('portugal');
+getCountryData('usa');
 //Note that the API has dynamically assigned currency names and languages, requires functions that would iterate and index the properties to get the value for any country. Just a sidenote if you want to use it in the future.
