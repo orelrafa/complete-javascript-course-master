@@ -123,7 +123,7 @@ const renderError = function (msg) {
   //countriesContainer.style.opacity = 1;
 };
 
-const getJSON = function (url, errorMsg = 'Something went wrong') {
+const getJSON = async function (url, errorMsg = 'Something went wrong') {
   return fetch(url).then(response => {
     if (!response.ok) {
       throw new Error(`${errorMsg} (${response.status})`);
@@ -189,3 +189,58 @@ btn.addEventListener('click', function () {
 });
 
 getCountryDataV2('usa');
+
+console.log('Test start');
+setTimeout(() => {
+  console.log('0 sec timer');
+}, 0);
+Promise.resolve('Resolved promise 1').then(res => console.log(res));
+console.log('Test end');
+const lotteryPromise = new Promise(function (resolve, reject) {
+  if (Math.random() >= 0.5) {
+    resolve('You WIN!');
+  } else {
+    reject('You lost your money');
+  }
+});
+
+lotteryPromise.then(res => console.log(res)).catch(err => console.error(err));
+console.log('good demonstration of the microstack priority');
+
+//Promisifying setTimeout
+const wait = function (seconds) {
+  return new Promise(function (
+    resolve
+  ) /*We don't need the reject function because it is impossible for the timer to fail */ {
+    setTimeout(resolve, seconds * 1000);
+  });
+};
+/*
+wait(1)
+  .then(() => {
+    console.log('I waited for 1 seconds');
+    return wait(1);
+  })
+  .then(() => {
+    console.log('I waited for 2 seconds');
+    return wait(2);
+  })
+  .then(() => {
+    console.log('I waited for 3 seconds');
+    return wait(3);
+  })
+  .then(() => {
+    console.log('I waited for 4 seconds');
+    return wait(4);
+  })
+  .then(() => {
+    console.log('I waited for 5 seconds');
+    return wait(5);
+  });
+
+Promise.resolve('abc').then(x => console.log(x));
+Promise.reject(new Error('Problem!')).catch(x => console.error(x));
+
+*/
+
+navigator.geolocation.getCurrentPosition;
